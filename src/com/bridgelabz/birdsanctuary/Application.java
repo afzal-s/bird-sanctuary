@@ -4,7 +4,7 @@ package com.bridgelabz.birdsanctuary;
 public class Application {
 
 	public static void main(String[] args) {
-		System.out.println("Welcome To Bird Sanctuary.");
+		System.out.println("Welcome To Bird Sanctuary.\n");
 		
 		BirdRepository birdRepository = new BirdRepository();
 		
@@ -28,14 +28,20 @@ public class Application {
 		duck.id = "D001";
 		duck.gender = "Male";
 		
+		
 		birdRepository.add(crow);
 		birdRepository.add(duck);
 		birdRepository.add(eagle);
 		birdRepository.add(penguin);
 		birdRepository.add(pigeon);
 		
+		System.out.println("All Birds: ");
 		UserInterface userInterface = new UserInterface();
 		
+		userInterface.printAllBirds(birdRepository.getBirdList());
+		
+		System.out.println("\nAfter Deletion: ");
+		birdRepository.remove(duck);
 		userInterface.printAllBirds(birdRepository.getBirdList());
 	}
 }

@@ -13,4 +13,8 @@ public class BirdRepository {
 	public ArrayList getBirdList() {
 		return birdList;
 	}
+	
+	public void remove(Bird bird) {
+		birdList.remove(bird);
+	}
 }
