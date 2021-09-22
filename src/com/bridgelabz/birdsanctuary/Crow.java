@@ -1,8 +1,8 @@
 package com.bridgelabz.birdsanctuary;
 
-public class Crow {
-	String name;
-	String color;
-	String id;
-	String gender;
+public class Crow extends Bird {
+	public Crow(){
+		color = "Black";
+		name = "Crow";
+	}
 }
