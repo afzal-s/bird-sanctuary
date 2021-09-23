@@ -1,6 +1,6 @@
 package com.bridgelabz.birdsanctuary;
 
-import java.util.List;
+import java.util.Set;
 
 // UI Layer
 public class UserInterface {
@@ -12,7 +12,7 @@ public class UserInterface {
 	}
 	*/
 	
-	void printAllBirds(List birdList) {
+	void printAllBirds(Set<Bird> birdList) {
 		for (Object object : birdList) {
 			System.out.println(object);		
 		}

@@ -1,16 +1,17 @@
 package com.bridgelabz.birdsanctuary;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
-// Data Layer Or Model Layer. [CRUD]
+// Data Layer Or Model Layer. [CURD]
 public class BirdRepository {
-	private ArrayList<Bird> birdList = new ArrayList<Bird>();
-
+	Set<Bird> birdList = new HashSet<Bird>();
+	
 	public void add(Bird bird) {
 		birdList.add(bird);
 	}
 
-	public ArrayList getBirdList() {
+	public Set<Bird> getBirdList() {
 		return birdList;
 	}
 	
