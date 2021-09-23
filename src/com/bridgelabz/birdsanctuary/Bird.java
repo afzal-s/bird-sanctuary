@@ -27,6 +27,7 @@ public class Bird {
 		if (getClass() != obj.getClass())
 			return false;
 		Bird other = (Bird) obj;
-		return Objects.equals(id, other.id);
+		// return Objects.equals(id, other.id);
+		return id.equals(other.id);
 	}
 }
