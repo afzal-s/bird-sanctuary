@@ -6,14 +6,26 @@ import java.util.Set;
 // Data Layer Or Model Layer. [CURD]
 public class BirdRepository {
 	Set<Bird> birdList = new HashSet<Bird>();
+	private static BirdRepository birdRepositoryInstance;
 	
+	private BirdRepository() {
+	
+	}
+	
+	public static synchronized BirdRepository getInstance() {
+		if (birdRepositoryInstance == null) {
+			birdRepositoryInstance = new BirdRepository();
+		}
+		return birdRepositoryInstance;
+	}
+
 	public void add(Bird bird) {
 		birdList.add(bird);
 	}
 	
 	public Bird getBird(String name) {
 		for (Bird bird : birdList) {
-			if (bird.name.equals(name)) {
+			if (bird.name.equalsIgnoreCase(name)) {
 				return bird;
 			}
 		}

@@ -10,7 +10,7 @@ public class Bird {
 	
 	@Override
 	public String toString() {
-		return "Bird > Name: " + name + ", Color: " + color + ", ID: " + id + ", Gender: " + gender;
+		return "\nBird Details > [ Name: " + name + ", Color: " + color + ", ID: " + id + ", Gender: " + gender + " ]";
 	}
 
 	@Override

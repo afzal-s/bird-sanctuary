@@ -4,75 +4,106 @@ import java.util.Scanner;
 
 // Controller Layer
 public class Application {
-	BirdRepository birdRepository = new BirdRepository();
 
 	public static void main(String[] args) {
-		System.out.println("Welcome To Bird Sanctuary.\n");
-
-		/*
-		 * BirdRepository birdRepository = new BirdRepository();
-		 * 
-		 * Pigeon pigeon = new Pigeon(); pigeon.id = "PE01"; pigeon.gender = "Female";
-		 * 
-		 * Eagle eagle = new Eagle(); eagle.id = "E001"; eagle.gender = "Male";
-		 * 
-		 * Crow crow = new Crow(); crow.id = "C001"; crow.gender = "Male";
-		 * 
-		 * Penguin penguin = new Penguin(); penguin.id = "PN01"; penguin.gender =
-		 * "Female";
-		 * 
-		 * Duck duck = new Duck(); duck.id = "D001"; duck.gender = "Male";
-		 * 
-		 * Duck duck2 = new Duck(); duck2.id = "D001"; duck2.gender = "Female";
-		 * 
-		 * birdRepository.add(duck); birdRepository.add(duck2);
-		 * birdRepository.add(crow); birdRepository.add(eagle);
-		 * birdRepository.add(penguin); birdRepository.add(pigeon);
-		 * 
-		 * UserInterface userInterface = new UserInterface();
-		 * 
-		 * System.out.println("All Birds: ");
-		 * userInterface.printAllBirds(birdRepository.getBirdList());
-		 * System.out.println("\nAfter Deletion: "); birdRepository.remove(duck);
-		 * userInterface.printAllBirds(birdRepository.getBirdList());
-		 */
+		System.out.println(
+				"\n-------------------------------------------\n\tWELCOME TO  BIRD SANCTUARY\n-------------------------------------------");
 
 		Application application = new Application();
 		application.showOptionMenu();
 	}
 
 	private void showOptionMenu() {
+		BirdRepository birdRepository = BirdRepository.getInstance();
+
 		boolean exit = false;
 
 		while (!exit) {
 			Scanner scanner = new Scanner(System.in);
-			System.out.println("PRESS 1: Add Bird \nPRESS 2: Remove Bird \nPRESS 3: Print Bird \nPRESS 4: Exit");
+			System.out.println(
+					"\nPRESS 1: Add Bird \nPRESS 2: Remove Bird \nPRESS 3: Print Bird \nPRESS 4: Update Bird \nPRESS 5: Exit");
+			System.out.print("\nEnter Your Choice: ");
 			int choice = scanner.nextInt();
 			switch (choice) {
 			case 1:
 				addBird();
 				break;
 			case 2:
-				System.out.print("Enter The Bird Name You Want To Remove: ");
+				System.out.print("\nEnter The Bird Name You Want To Remove: ");
 				Scanner scan = new Scanner(System.in);
 				String birdName = scan.nextLine();
+
 				Bird foundBird = birdRepository.getBird(birdName);
 				birdRepository.removeBird(foundBird);
 				break;
 			case 3:
-				UserInterface userInterface = new UserInterface();
+				UserInterface userInterface = UserInterface.getInstance();
 				userInterface.printAllBirds(birdRepository.getBirdList());
 				break;
 			case 4:
+				updateBird();
+				break;
+			case 5:
 				exit = true;
+				System.out.println("\n*** Thankyou For Visiting ***");
+				break;
 			default:
+				System.out.println("\n*** Error!! Invalid Input: Enter 1, 2, 3 Or 4 To Exit. ***");
+			}
+		}
+	}
+
+	private void updateBird() {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.print("\nEnter Bird Name To Update: ");
+		String birdName = scanner.nextLine();
+		BirdRepository birdRepository = BirdRepository.getInstance();
+		Bird searchBird = birdRepository.getBird(birdName);
+
+		boolean exit = false;
+
+		while (!exit) {
+			scanner = new Scanner(System.in);
+			System.out.println(
+					"\nPRESS 1: Update Color \nPRESS 2: Update Id \nPRESS 3: Update Name \nPRESS 4: Update Gender \nPRESS 5: Exit");
+			System.out.print("\nEnter Your Choice: ");
+			int ch = scanner.nextInt();
+			switch (ch) {
+			case 1:
+				System.out.print("\nEnter Color: ");
+				String color = scanner.next();
+				searchBird.color = color;
+				break;
+			case 2:
+				System.out.print("\nEnter ID: ");
+				String id = scanner.next();
+				searchBird.id = id;
+				break;
+			case 3:
+				System.out.print("\nEnter Name: ");
+				String name = scanner.next();
+				searchBird.name = name;
+				break;
+			case 4:
+				System.out.print("\nEnter Gender: ");
+				String gender = scanner.next();
+				searchBird.gender = gender;
+				break;
+			case 5:
+				exit = true;
+				System.out.print("\n*** UPDATED!! ***\n");
+				break;
+			default:
+				System.out.println("\n*** Error!! Invalid Input: Enter 1, 2, 3, 4 To Update Or 5 To Exit. ***");
 				break;
 			}
 		}
-
 	}
 
 	private void addBird() {
+		BirdRepository birdRepository = BirdRepository.getInstance();
+
 		Pigeon pigeon = new Pigeon();
 		pigeon.id = "PE01";
 		pigeon.gender = "Female";
