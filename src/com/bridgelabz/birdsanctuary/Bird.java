@@ -4,11 +4,12 @@ import java.util.Objects;
 
 public class Bird {
 	enum Color{WHITE, GREEN, BLACK_WHITE, BLACK, GREY};
+	enum Gender{MALE, FEMALE};
 	
 	String name;
 	Color color;
 	String id;
-	String gender;
+	Gender gender;
 	
 	@Override
 	public String toString() {
@@ -29,7 +30,7 @@ public class Bird {
 		if (getClass() != obj.getClass())
 			return false;
 		Bird other = (Bird) obj;
-		// return Objects.equals(id, other.id);
 		return id.equals(other.id);
 	}
+	
 }
