@@ -3,8 +3,10 @@ package com.bridgelabz.birdsanctuary;
 import java.util.Objects;
 
 public class Bird {
+	enum Color{WHITE, GREEN, BLACK_WHITE, BLACK, GREY};
+	
 	String name;
-	String color;
+	Color color;
 	String id;
 	String gender;
 	

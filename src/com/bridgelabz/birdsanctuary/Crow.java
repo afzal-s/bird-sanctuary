@@ -2,7 +2,7 @@ package com.bridgelabz.birdsanctuary;
 
 public class Crow extends Bird {
 	public Crow(){
-		color = "Black";
+		color = Color.BLACK;
 		name = "Crow";
 	}
 }

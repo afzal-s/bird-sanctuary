@@ -1,5 +1,6 @@
 package com.bridgelabz.birdsanctuary;
 
+import java.util.Scanner;
 import java.util.Set;
 
 // UI Layer
@@ -22,6 +23,11 @@ public class UserInterface {
 			System.out.println(object);		
 		}
 	}
+
+//	public void addBird() {
+//		Scanner scanner = new Scanner(System.in);
+//		
+//	}
 	
 	/*
 	void printAllBirds(List birdList) {
