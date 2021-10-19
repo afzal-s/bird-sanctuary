@@ -24,12 +24,18 @@ public class BirdRepository {
 	}
 	
 	public Bird getBird(String name) {
-		for (Bird bird : birdList) {
-			if (bird.name.equalsIgnoreCase(name)) {
-				return bird;
-			}
-		}
-		return null;
+		
+		/*
+		Bird bird = birdList.stream()
+			.filter(bird -> bird.name.equalsIgnoreCase(name))
+			.findFirst()
+			.orElse(null);
+		*/
+				
+		return birdList.stream()
+			.filter(bird -> bird.name.equalsIgnoreCase(name))
+			.findFirst()
+			.orElse(null);
 	}
 	
 	public void removeBird(Bird bird) {
@@ -40,7 +46,4 @@ public class BirdRepository {
 		return birdList;
 	}
 	
-//	public void remove(Bird bird) {
-//		birdList.remove(bird);
-//	}
 }

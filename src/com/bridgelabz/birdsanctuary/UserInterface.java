@@ -22,9 +22,12 @@ public class UserInterface {
 	}
 
 	void printAllBirds(Set<Bird> birdList) {
-		for (Object object : birdList) {
-			System.out.println(object);
-		}
+		/*
+		birdList.stream()
+			.forEach(birds -> System.out.println(birds));
+		*/
+		birdList.stream()
+			.forEach(System.out::println);
 	}
 
 	public void addBird() {

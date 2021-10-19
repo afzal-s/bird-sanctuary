@@ -13,7 +13,7 @@ public class Bird {
 	
 	@Override
 	public String toString() {
-		return "\nBird Details > [ Name: " + name + ", Color: " + color + ", ID: " + id + ", Gender: " + gender + " ]";
+		return "Bird [name=" + name + ", color=" + color + ", id=" + id + ", gender=" + gender + "]";
 	}
 
 	@Override
