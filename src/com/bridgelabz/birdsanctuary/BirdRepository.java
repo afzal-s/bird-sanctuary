@@ -24,14 +24,6 @@ public class BirdRepository {
 	}
 	
 	public Bird getBird(String name) {
-		
-		/*
-		Bird bird = birdList.stream()
-			.filter(bird -> bird.name.equalsIgnoreCase(name))
-			.findFirst()
-			.orElse(null);
-		*/
-				
 		return birdList.stream()
 			.filter(bird -> bird.name.equalsIgnoreCase(name))
 			.findFirst()

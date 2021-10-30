@@ -22,12 +22,7 @@ public class UserInterface {
 	}
 
 	void printAllBirds(Set<Bird> birdList) {
-		/*
-		birdList.stream()
-			.forEach(birds -> System.out.println(birds));
-		*/
-		birdList.stream()
-			.forEach(System.out::println);
+		birdList.stream().forEach(System.out::println);
 	}
 
 	public void addBird() {
@@ -37,12 +32,17 @@ public class UserInterface {
 
 		System.out.println("Enter Bird Name: ");
 		bird.name = scanner.nextLine();
-		
+
 		System.out.println("Enter Bird Id: ");
 		bird.id = scanner.nextLine();
-		
+
 		setColor(bird);
 		setGender(bird);
+
+		System.out.println("Enter Bird Swimable? [True, False]: ");
+		bird.isSwimAble = scanner.nextBoolean();
+		System.out.println("Enter Bird Flyable? [True, False]: ");
+		bird.isFlyAble = scanner.nextBoolean();
 
 		birdRepository.add(bird);
 	}
@@ -50,9 +50,7 @@ public class UserInterface {
 	private void setGender(Bird bird) {
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.println("Enter Bird Gender: \n"
-				+ "1. Male\n"
-				+ "2. Female");
+		System.out.println("Enter Bird Gender: \n" + "1. Male\n" + "2. Female");
 		int choice = scanner.nextInt();
 		switch (choice) {
 		case 1:
@@ -68,12 +66,8 @@ public class UserInterface {
 
 	public void setColor(Bird bird) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter Bird Color: \n"
-				+ "1. White\n"
-				+ "2. Black\n"
-				+ "3. Grey\n"
-				+ "4. Green\n"
-				+ "5. Black & White");
+		System.out.println(
+				"Enter Bird Color: \n" + "1. White\n" + "2. Black\n" + "3. Grey\n" + "4. Green\n" + "5. Black & White");
 		int choice = scanner.nextInt();
 		switch (choice) {
 		case 1:
@@ -138,6 +132,29 @@ public class UserInterface {
 				break;
 			}
 		}
+	}
+
+	public void printSwimAble(Set<Bird> birdList) {
+		birdList.stream().filter(bird -> bird.isFlyAble).forEach(System.out::println);
+		/*
+		.forEach(bird -> {
+			if (bird.isFlyAble == true) {
+				System.out.println(bird);
+			}
+		});
+		*/
+	}
+
+	public void printFlyAble(Set<Bird> birdList) {
+		birdList.stream().filter(bird -> bird.isSwimAble).forEach(System.out::println);
+		
+		/*
+		birdList.stream().forEach(bird -> {
+			if (bird.isSwimAble == true) {
+				System.out.println(bird);
+			}
+		});
+		*/
 	}
 
 }

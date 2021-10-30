@@ -5,11 +5,13 @@ import java.util.Objects;
 public class Bird {
 	enum Color{WHITE, GREEN, BLACK_WHITE, BLACK, GREY};
 	enum Gender{MALE, FEMALE};
-	
+
 	String name;
 	Color color;
 	String id;
 	Gender gender;
+	boolean isFlyAble;
+	boolean isSwimAble;
 	
 	@Override
 	public String toString() {

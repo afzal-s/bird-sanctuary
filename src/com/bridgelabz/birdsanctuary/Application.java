@@ -32,10 +32,16 @@ public class Application {
 
 		boolean exit = false;
 
+		/**
+		 * Modify: Swimable & Flyable,
+		 * 
+		 * @author xfzxl
+		 */
 		while (!exit) {
 			Scanner scanner = new Scanner(System.in);
 			System.out.println("\nPRESS 1: Add Bird \nPRESS 2: Remove Bird \nPRESS 3: Print Bird "
-					+ "\nPRESS 4: Update Bird \nPRESS 5: Exit");
+					+ "\nPRESS 4: Update Bird \nPRESS 5: Bird Swimable \nPRESS 6: Bird Flyable \nPRESS 7: Exit");
+			
 			System.out.print("\nEnter Your Choice: ");
 			int choice = scanner.nextInt();
 			switch (choice) {
@@ -57,6 +63,12 @@ public class Application {
 				userInterface.updateBird();
 				break;
 			case 5:
+				userInterface.printSwimAble(birdRepository.getBirdList());
+				break;
+			case 6:
+				userInterface.printFlyAble(birdRepository.getBirdList());
+				break;
+			case 7:
 				exit = true;
 				System.out.println("\n*** Thankyou For Visiting ***");
 				break;
@@ -65,5 +77,5 @@ public class Application {
 			}
 		}
 	}
-
+	
 }
